@@ -1,0 +1,68 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: normal;
+}
+
+body{
+    padding:0;
+    margin:0;
+    background: linear-gradient(to right, rgb(102, 69, 177), rgb(104, 211, 214));
+
+}
+
+.calculator-grid {
+    display:grid;
+    justify-content: center;
+    align-content: center;
+    /* align-content, nu align-items! ca butoanele sa nu aiba spatii intre ele */
+    min-height: 100vh;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+    /* minmax adica vreau minim 120px, dar daca e nevoie sa se intinda mai mult, sa o faca a.i. sa incapa tot continutul */
+}
+
+.calculator-grid > button {
+    cursor: pointer;
+    font-size:2rem;
+    border:1px solid rgb(255, 255, 255);
+    outline:none;
+    background-color: rgba(255, 255, 255, 0.671);
+}
+
+.calculator-grid > button:hover{
+    background-color: rgba(255, 255, 255, 0.87);
+
+}
+
+
+.span-two{
+    grid-column:span 2;
+}
+
+.output{
+    grid-column: 1 / -1;
+    /* ca sa se intinda de la prima coloana pana la ultima */
+    background-color: rgba(0, 0, 0, 0.726);
+    display:flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding:10px;
+
+    word-wrap: break-word;
+    word-break: break-all;
+    /* ca atunci cand nr e prea mare sa se duca pe linia de mai jos */
+}
+
+.output .previous-operand{
+    color:rgba(255, 255, 255, 0.774);
+    font-size: 1.5rem;
+
+}
+
+.output .current-operand{
+    color:rgba(255, 255, 255, 0.959);
+    font-size: 2.5rem;
+    
+}
